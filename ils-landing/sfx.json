@@ -1,0 +1,114 @@
+[
+ {
+  "type": "whoosh",
+  "at": "scene:s2-0.15"
+ },
+ {
+  "type": "riser",
+  "at": "word:l3:5"
+ },
+ {
+  "type": "impact",
+  "at": "word:l3:5"
+ },
+ {
+  "type": "whoosh",
+  "at": "scene:s4-0.15"
+ },
+ {
+  "type": "shimmer",
+  "at": "word:l5:3"
+ },
+ {
+  "type": "pop",
+  "at": "word:l5:9"
+ },
+ {
+  "type": "pop",
+  "at": "word:l5:12"
+ },
+ {
+  "type": "whoosh",
+  "at": "scene:s5-0.15"
+ },
+ {
+  "type": "tick",
+  "at": "word:l6:4"
+ },
+ {
+  "type": "whoosh",
+  "at": "scene:s6-0.15"
+ },
+ {
+  "type": "tick",
+  "at": "word:l7:4"
+ },
+ {
+  "type": "pop",
+  "at": "word:l8:2"
+ },
+ {
+  "type": "pop",
+  "at": "word:l8:3"
+ },
+ {
+  "type": "tick",
+  "at": "word:l8:4"
+ },
+ {
+  "type": "whoosh",
+  "at": "word:l8:5"
+ },
+ {
+  "type": "pop",
+  "at": "word:l8:7"
+ },
+ {
+  "type": "sub-drop",
+  "at": "word:l8:14"
+ },
+ {
+  "type": "tick",
+  "at": "word:l9:1"
+ },
+ {
+  "type": "tick",
+  "at": "word:l9:2"
+ },
+ {
+  "type": "impact",
+  "at": "word:l9:3"
+ },
+ {
+  "type": "glitch",
+  "at": "scene:s9-0.1"
+ },
+ {
+  "type": "scratch",
+  "at": "word:l10:2"
+ },
+ {
+  "type": "pop",
+  "at": "word:l10:14"
+ },
+ {
+  "type": "swoosh-pass",
+  "at": "word:l11:2"
+ },
+ {
+  "type": "pop",
+  "at": "word:l11:4"
+ },
+ {
+  "type": "boom",
+  "at": "scene:s11"
+ },
+ {
+  "type": "riser",
+  "at": "word:l12:12"
+ },
+ {
+  "type": "impact",
+  "at": "word:l12:13+0.75"
+ }
+]
