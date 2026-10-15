@@ -1,0 +1,27 @@
+[
+ {
+  "type": "shimmer",
+  "at": "word:l1:10",
+  "gain": 0.3
+ },
+ {
+  "type": "sub-drop",
+  "at": "word:l3:13",
+  "gain": 0.45
+ },
+ {
+  "type": "sub-drop",
+  "at": "word:l4:9",
+  "gain": 0.55
+ },
+ {
+  "type": "impact",
+  "at": "word:l5:5",
+  "gain": 0.45
+ },
+ {
+  "type": "shimmer",
+  "at": "word:l7:3",
+  "gain": 0.28
+ }
+]

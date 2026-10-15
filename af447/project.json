@@ -1,0 +1,111 @@
+{
+ "name": "AF447",
+ "fps": 60,
+ "width": 1080,
+ "height": 1920,
+ "bpm": 96,
+ "beatsPerBar": 4,
+ "palette": {
+  "bg": "#050A14",
+  "ink": "#F4F7FB",
+  "acc": "#FFB43A",
+  "clay": "#FF5A36",
+  "hi": "#8FE9F5",
+  "mut": "#7C8CA6"
+ },
+ "fonts": {
+  "display": "Lalezar",
+  "body": "Cairo",
+  "num": "Inter"
+ },
+ "post": {
+  "grain": 0.04,
+  "vignette": 0.34
+ },
+ "voice": {
+  "name": "own"
+ },
+ "timing": {
+  "snap": "none",
+  "keepOriginal": true,
+  "leadIn": 0,
+  "gap": 0,
+  "startPad": 0,
+  "tail": 1.0
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "file": "scenes/s1.js",
+   "lines": [
+    "l1"
+   ]
+  },
+  {
+   "id": "s2",
+   "file": "scenes/s2.js",
+   "lines": [
+    "l2"
+   ],
+   "transition": {
+    "type": "crossfade",
+    "dur": 0.5
+   }
+  },
+  {
+   "id": "s3",
+   "file": "scenes/s3.js",
+   "lines": [
+    "l3"
+   ],
+   "transition": {
+    "type": "crossfade",
+    "dur": 0.5
+   }
+  },
+  {
+   "id": "s4",
+   "file": "scenes/s4.js",
+   "lines": [
+    "l4"
+   ],
+   "transition": {
+    "type": "crossfade",
+    "dur": 0.5
+   }
+  },
+  {
+   "id": "s5",
+   "file": "scenes/s5.js",
+   "lines": [
+    "l5"
+   ],
+   "transition": {
+    "type": "crossfade",
+    "dur": 0.5
+   }
+  },
+  {
+   "id": "s6",
+   "file": "scenes/s6.js",
+   "lines": [
+    "l6"
+   ],
+   "transition": {
+    "type": "crossfade",
+    "dur": 0.5
+   }
+  },
+  {
+   "id": "s7",
+   "file": "scenes/s7.js",
+   "lines": [
+    "l7"
+   ],
+   "transition": {
+    "type": "crossfade",
+    "dur": 0.5
+   }
+  }
+ ]
+}
