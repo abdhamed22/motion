@@ -1,0 +1,142 @@
+{
+ "name": "flare",
+ "fps": 60,
+ "width": 1080,
+ "height": 1920,
+ "bpm": 96,
+ "beatsPerBar": 4,
+ "palette": {
+  "bg": "#0A1424",
+  "ink": "#F4F7FB",
+  "acc": "#FFB43A",
+  "clay": "#27C3D8",
+  "hi": "#8FE9F5",
+  "mut": "#7C8CA6"
+ },
+ "fonts": {
+  "display": "Lalezar",
+  "body": "Cairo",
+  "num": "Inter"
+ },
+ "post": {
+  "grain": 0.03,
+  "vignette": 0.28
+ },
+ "voice": {
+  "name": "own"
+ },
+ "timing": {
+  "snap": "none",
+  "keepOriginal": true,
+  "leadIn": 0,
+  "gap": 0,
+  "startPad": 0,
+  "tail": 1.0
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "file": "scenes/s1.js",
+   "lines": [
+    "l1"
+   ]
+  },
+  {
+   "id": "s2",
+   "file": "scenes/s2.js",
+   "lines": [
+    "l2"
+   ],
+   "transition": {
+    "type": "wipe",
+    "dur": 0.4,
+    "dir": "ltr",
+    "color": "#27C3D8"
+   }
+  },
+  {
+   "id": "s3",
+   "file": "scenes/s3.js",
+   "lines": [
+    "l3"
+   ],
+   "transition": {
+    "type": "push",
+    "dur": 0.4,
+    "dir": "up"
+   }
+  },
+  {
+   "id": "s4",
+   "file": "scenes/s4.js",
+   "lines": [
+    "l4"
+   ],
+   "transition": {
+    "type": "flash",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "s5",
+   "file": "scenes/s5.js",
+   "lines": [
+    "l5"
+   ],
+   "transition": {
+    "type": "glitch",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "s6",
+   "file": "scenes/s6.js",
+   "lines": [
+    "l6"
+   ],
+   "transition": {
+    "type": "zoom",
+    "dur": 0.4
+   }
+  },
+  {
+   "id": "s7",
+   "file": "scenes/s7.js",
+   "lines": [
+    "l7"
+   ],
+   "transition": {
+    "type": "iris",
+    "dur": 0.45,
+    "at": [
+     540,
+     960
+    ]
+   }
+  },
+  {
+   "id": "s8",
+   "file": "scenes/s8.js",
+   "lines": [
+    "l8"
+   ],
+   "transition": {
+    "type": "wipe",
+    "dur": 0.4,
+    "dir": "rtl",
+    "color": "#FFB43A"
+   }
+  },
+  {
+   "id": "s9",
+   "file": "scenes/s9.js",
+   "lines": [
+    "l9"
+   ],
+   "transition": {
+    "type": "dip",
+    "dur": 0.4
+   }
+  }
+ ]
+}
