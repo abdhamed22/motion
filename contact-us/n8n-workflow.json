@@ -65,7 +65,7 @@
   {
    "parameters": {
     "chatId": "PUT_YOUR_TELEGRAM_CHAT_ID",
-    "text": "=📩 رسالة جديدة\nرقم: {{ $json.body.ticket }}\nالاسم: {{ $json.body.name }}\nللرد: {{ $json.body.contact }}\nالموضوع: {{ $json.body.topic }}\n\n{{ $json.body.message }}",
+    "text": "=📩 رسالة جديدة\nTICKET: {{ $json.body.ticket }}\nالاسم: {{ $json.body.name }}\nCONTACT: {{ $json.body.contact }}\nالموضوع: {{ $json.body.topic }}\n\n{{ $json.body.message }}\n\n↩️ للرد: اعمل Reply على هالرسالة واكتب ردك.",
     "additionalFields": {
      "appendAttribution": false
     }

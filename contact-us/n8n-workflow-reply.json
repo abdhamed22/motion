@@ -1,0 +1,279 @@
+{
+ "name": "Iraqi Aviation — Reply via bot",
+ "nodes": [
+  {
+   "parameters": {
+    "updates": [
+     "message"
+    ],
+    "additionalFields": {}
+   },
+   "id": "r1",
+   "name": "رد من التيليغرام",
+   "type": "n8n-nodes-base.telegramTrigger",
+   "typeVersion": 1.1,
+   "position": [
+    0,
+    100
+   ],
+   "webhookId": "iraqi-aviation-reply-bot"
+  },
+  {
+   "parameters": {
+    "conditions": {
+     "options": {
+      "caseSensitive": true,
+      "leftValue": "",
+      "typeValidation": "loose"
+     },
+     "conditions": [
+      {
+       "id": "a",
+       "leftValue": "={{ String($json.message.chat.id) }}",
+       "rightValue": "PUT_YOUR_TELEGRAM_CHAT_ID",
+       "operator": {
+        "type": "string",
+        "operation": "equals"
+       }
+      },
+      {
+       "id": "b",
+       "leftValue": "={{ $json.message.reply_to_message.text }}",
+       "rightValue": "TICKET:",
+       "operator": {
+        "type": "string",
+        "operation": "contains"
+       }
+      }
+     ],
+     "combinator": "and"
+    }
+   },
+   "id": "r2",
+   "name": "منك وReply على مراسلة؟",
+   "type": "n8n-nodes-base.if",
+   "typeVersion": 2.2,
+   "position": [
+    260,
+    100
+   ]
+  },
+  {
+   "parameters": {
+    "jsCode": "const sd = $getWorkflowStaticData('global'); sd.replies = sd.replies || {};\nconst m = $json.message; const src = (m.reply_to_message && m.reply_to_message.text) || '';\nconst t = (src.match(/TICKET:\\s*(NGB-[A-Z0-9]{6})/) || [])[1];\nconst c = (src.match(/CONTACT:\\s*(\\S+)/) || [])[1] || '';\nif (!t) return [];\nsd.replies[t] = { reply: m.text || '', at: new Date().toISOString() };\nreturn [{ json: { ticket: t, contact: c, reply: m.text || '', chatId: m.chat.id, isEmail: /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(c) } }];"
+   },
+   "id": "r3",
+   "name": "استخراج الرقم وحفظ الرد",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    520,
+    100
+   ]
+  },
+  {
+   "parameters": {
+    "conditions": {
+     "options": {
+      "caseSensitive": true,
+      "leftValue": "",
+      "typeValidation": "loose"
+     },
+     "conditions": [
+      {
+       "id": "e",
+       "leftValue": "={{ $json.isEmail }}",
+       "rightValue": "",
+       "operator": {
+        "type": "boolean",
+        "operation": "true",
+        "singleValue": true
+       }
+      }
+     ],
+     "combinator": "and"
+    }
+   },
+   "id": "r4",
+   "name": "وسيلة الرد إيميل؟",
+   "type": "n8n-nodes-base.if",
+   "typeVersion": 2.2,
+   "position": [
+    780,
+    100
+   ]
+  },
+  {
+   "parameters": {
+    "fromEmail": "PUT_YOUR_SENDER_EMAIL",
+    "toEmail": "={{ $json.contact }}",
+    "subject": "=رد على مراسلتك {{ $json.ticket }}",
+    "emailFormat": "text",
+    "text": "={{ $json.reply }}\n\n—\nرقم المراسلة: {{ $json.ticket }}\n@iraqi_aviation_ngb",
+    "options": {}
+   },
+   "id": "r5",
+   "name": "إرسال إيميل",
+   "type": "n8n-nodes-base.emailSend",
+   "typeVersion": 2.1,
+   "position": [
+    1040,
+    0
+   ]
+  },
+  {
+   "parameters": {
+    "chatId": "={{ $('استخراج الرقم وحفظ الرد').item.json.chatId }}",
+    "text": "=✅ انحفظ ردك للمراسلة {{ $('استخراج الرقم وحفظ الرد').item.json.ticket }}\nيظهر للزائر برقم المراسلة على الموقع{{ $('استخراج الرقم وحفظ الرد').item.json.isEmail ? ' وانرسل له إيميل' : '' }}.",
+    "additionalFields": {
+     "appendAttribution": false
+    }
+   },
+   "id": "r6",
+   "name": "تأكيد لك",
+   "type": "n8n-nodes-base.telegram",
+   "typeVersion": 1.2,
+   "position": [
+    1300,
+    100
+   ]
+  },
+  {
+   "parameters": {
+    "httpMethod": "GET",
+    "path": "iraqi-aviation-reply",
+    "responseMode": "responseNode",
+    "options": {
+     "allowedOrigins": "*"
+    }
+   },
+   "id": "r7",
+   "name": "استعلام الرد من الموقع",
+   "type": "n8n-nodes-base.webhook",
+   "typeVersion": 2,
+   "position": [
+    0,
+    420
+   ],
+   "webhookId": "iraqi-aviation-reply-lookup"
+  },
+  {
+   "parameters": {
+    "jsCode": "const sd = $getWorkflowStaticData('global');\nconst t = String(($json.query && $json.query.ticket) || '').toUpperCase().trim();\nconst r = (sd.replies || {})[t];\nreturn [{ json: r ? { found: true, reply: r.reply, at: r.at } : { found: false } }];"
+   },
+   "id": "r8",
+   "name": "جلب الرد",
+   "type": "n8n-nodes-base.code",
+   "typeVersion": 2,
+   "position": [
+    260,
+    420
+   ]
+  },
+  {
+   "parameters": {
+    "respondWith": "json",
+    "responseBody": "={{ $json }}",
+    "options": {}
+   },
+   "id": "r9",
+   "name": "رد للموقع",
+   "type": "n8n-nodes-base.respondToWebhook",
+   "typeVersion": 1.1,
+   "position": [
+    520,
+    420
+   ]
+  }
+ ],
+ "connections": {
+  "رد من التيليغرام": {
+   "main": [
+    [
+     {
+      "node": "منك وReply على مراسلة؟",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "منك وReply على مراسلة؟": {
+   "main": [
+    [
+     {
+      "node": "استخراج الرقم وحفظ الرد",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    []
+   ]
+  },
+  "استخراج الرقم وحفظ الرد": {
+   "main": [
+    [
+     {
+      "node": "وسيلة الرد إيميل؟",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "وسيلة الرد إيميل؟": {
+   "main": [
+    [
+     {
+      "node": "إرسال إيميل",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "تأكيد لك",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "إرسال إيميل": {
+   "main": [
+    [
+     {
+      "node": "تأكيد لك",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "استعلام الرد من الموقع": {
+   "main": [
+    [
+     {
+      "node": "جلب الرد",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "جلب الرد": {
+   "main": [
+    [
+     {
+      "node": "رد للموقع",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ },
+ "settings": {
+  "executionOrder": "v1"
+ }
+}
