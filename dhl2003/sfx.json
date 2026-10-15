@@ -1,0 +1,166 @@
+[
+ {
+  "type": "boom",
+  "at": "word:l1:0"
+ },
+ {
+  "type": "pop",
+  "at": "word:l1:1"
+ },
+ {
+  "type": "pop",
+  "at": "word:l1:4"
+ },
+ {
+  "type": "impact",
+  "at": "word:l1:6"
+ },
+ {
+  "type": "whoosh",
+  "at": "scene:s2-0.1"
+ },
+ {
+  "type": "pop",
+  "at": "word:l2:5"
+ },
+ {
+  "type": "swoosh-pass",
+  "at": "word:l2:10"
+ },
+ {
+  "type": "whoosh",
+  "at": "word:l3:5"
+ },
+ {
+  "type": "riser",
+  "at": "word:l3:11"
+ },
+ {
+  "type": "impact",
+  "at": "word:l3:11"
+ },
+ {
+  "type": "swoosh-pass",
+  "at": "word:l4:0"
+ },
+ {
+  "type": "boom",
+  "at": "word:l4:1+0.35"
+ },
+ {
+  "type": "impact",
+  "at": "word:l4:1+0.35"
+ },
+ {
+  "type": "pop",
+  "at": "word:l4:7"
+ },
+ {
+  "type": "glitch",
+  "at": "scene:s5"
+ },
+ {
+  "type": "riser",
+  "at": "word:l5:5"
+ },
+ {
+  "type": "boom",
+  "at": "word:l5:6"
+ },
+ {
+  "type": "tick",
+  "at": "word:l6:4"
+ },
+ {
+  "type": "tick",
+  "at": "word:l6:5"
+ },
+ {
+  "type": "impact",
+  "at": "word:l6:6"
+ },
+ {
+  "type": "impact",
+  "at": "word:l6:11"
+ },
+ {
+  "type": "impact",
+  "at": "word:l6:13"
+ },
+ {
+  "type": "sub-drop",
+  "at": "word:l7:5"
+ },
+ {
+  "type": "riser",
+  "at": "word:l7:9"
+ },
+ {
+  "type": "sub-drop",
+  "at": "scene:s8"
+ },
+ {
+  "type": "shimmer",
+  "at": "word:l8:4"
+ },
+ {
+  "type": "pop",
+  "at": "word:l9:5"
+ },
+ {
+  "type": "whoosh",
+  "at": "word:l9:6"
+ },
+ {
+  "type": "scratch",
+  "at": "word:l10:3"
+ },
+ {
+  "type": "pop",
+  "at": "word:l10:11"
+ },
+ {
+  "type": "riser",
+  "at": "word:l11:3"
+ },
+ {
+  "type": "impact",
+  "at": "word:l11:11"
+ },
+ {
+  "type": "boom",
+  "at": "word:l11:20"
+ },
+ {
+  "type": "boom",
+  "at": "word:l12:0"
+ },
+ {
+  "type": "pop",
+  "at": "word:l13:3"
+ },
+ {
+  "type": "shimmer",
+  "at": "word:l13:4"
+ },
+ {
+  "type": "pop",
+  "at": "word:l14:3"
+ },
+ {
+  "type": "pop",
+  "at": "word:l14:6"
+ },
+ {
+  "type": "scratch",
+  "at": "word:l14:16"
+ },
+ {
+  "type": "riser",
+  "at": "word:l15:9"
+ },
+ {
+  "type": "impact",
+  "at": "word:l15:10"
+ }
+]
