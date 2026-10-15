@@ -1,0 +1,178 @@
+{
+ "name": "DHL2003",
+ "fps": 60,
+ "width": 1080,
+ "height": 1920,
+ "bpm": 96,
+ "beatsPerBar": 4,
+ "palette": {
+  "bg": "#070B14",
+  "ink": "#F4F7FB",
+  "acc": "#FFB43A",
+  "clay": "#FF5A36",
+  "hi": "#FFD08A",
+  "mut": "#7C8CA6"
+ },
+ "fonts": {
+  "display": "Lalezar",
+  "body": "Cairo",
+  "num": "Inter"
+ },
+ "post": {
+  "grain": 0.04,
+  "vignette": 0.34
+ },
+ "voice": {
+  "name": "own"
+ },
+ "timing": {
+  "snap": "none",
+  "keepOriginal": true,
+  "leadIn": 0,
+  "gap": 0,
+  "startPad": 0,
+  "tail": 1.0
+ },
+ "scenes": [
+  {
+   "id": "s1",
+   "file": "scenes/s1.js",
+   "lines": [
+    "l1"
+   ]
+  },
+  {
+   "id": "s2",
+   "file": "scenes/s2.js",
+   "lines": [
+    "l2"
+   ],
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "id": "s3",
+   "file": "scenes/s3.js",
+   "lines": [
+    "l3"
+   ],
+   "transition": {
+    "type": "flash",
+    "dur": 0.25
+   }
+  },
+  {
+   "id": "s4",
+   "file": "scenes/s4.js",
+   "lines": [
+    "l4"
+   ],
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "id": "s5",
+   "file": "scenes/s5.js",
+   "lines": [
+    "l5"
+   ],
+   "transition": {
+    "type": "glitch",
+    "dur": 0.3
+   }
+  },
+  {
+   "id": "s6",
+   "file": "scenes/s6.js",
+   "lines": [
+    "l6"
+   ],
+   "transition": {
+    "type": "flash",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "s7",
+   "file": "scenes/s7.js",
+   "lines": [
+    "l7"
+   ],
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "id": "s8",
+   "file": "scenes/s8.js",
+   "lines": [
+    "l8"
+   ],
+   "transition": {
+    "type": "dip",
+    "dur": 0.3,
+    "color": "#000000"
+   }
+  },
+  {
+   "id": "s9",
+   "file": "scenes/s9.js",
+   "lines": [
+    "l9",
+    "l10"
+   ],
+   "transition": {
+    "type": "glitch",
+    "dur": 0.35
+   }
+  },
+  {
+   "id": "s10",
+   "file": "scenes/s10.js",
+   "lines": [
+    "l11"
+   ],
+   "transition": {
+    "type": "cut"
+   }
+  },
+  {
+   "id": "s11",
+   "file": "scenes/s11.js",
+   "lines": [
+    "l12",
+    "l13"
+   ],
+   "transition": {
+    "type": "flash",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "s12",
+   "file": "scenes/s12.js",
+   "lines": [
+    "l14"
+   ],
+   "transition": {
+    "type": "wipe",
+    "dur": 0.4,
+    "dir": "rtl",
+    "color": "#FFB43A"
+   }
+  },
+  {
+   "id": "s13",
+   "file": "scenes/s13.js",
+   "lines": [
+    "l15"
+   ],
+   "transition": {
+    "type": "dip",
+    "dur": 0.4
+   }
+  }
+ ]
+}

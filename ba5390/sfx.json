@@ -1,0 +1,138 @@
+[
+ {
+  "type": "whoosh",
+  "at": "word:l1:1"
+ },
+ {
+  "type": "impact",
+  "at": "word:l1:5"
+ },
+ {
+  "type": "boom",
+  "at": "word:l1:5"
+ },
+ {
+  "type": "riser",
+  "at": "word:l1:11"
+ },
+ {
+  "type": "impact",
+  "at": "word:l1:11"
+ },
+ {
+  "type": "sub-drop",
+  "at": "word:l1:12"
+ },
+ {
+  "type": "whoosh",
+  "at": "scene:s2-0.1"
+ },
+ {
+  "type": "pop",
+  "at": "word:l2:4"
+ },
+ {
+  "type": "pop",
+  "at": "word:l2:7"
+ },
+ {
+  "type": "pop",
+  "at": "word:l2:11"
+ },
+ {
+  "type": "swoosh-pass",
+  "at": "word:l2:17"
+ },
+ {
+  "type": "glitch",
+  "at": "scene:s3-0.1"
+ },
+ {
+  "type": "impact",
+  "at": "word:l3:1"
+ },
+ {
+  "type": "swoosh-pass",
+  "at": "word:l3:5"
+ },
+ {
+  "type": "sub-drop",
+  "at": "word:l3:10"
+ },
+ {
+  "type": "whoosh",
+  "at": "scene:s4-0.1"
+ },
+ {
+  "type": "tick",
+  "at": "word:l4:3"
+ },
+ {
+  "type": "pop",
+  "at": "word:l4:5"
+ },
+ {
+  "type": "whoosh",
+  "at": "word:l4:10"
+ },
+ {
+  "type": "pop",
+  "at": "word:l4:15"
+ },
+ {
+  "type": "tick",
+  "at": "word:l5:0"
+ },
+ {
+  "type": "boom",
+  "at": "word:l5:3"
+ },
+ {
+  "type": "pop",
+  "at": "word:l5:6"
+ },
+ {
+  "type": "shimmer",
+  "at": "word:l5:7"
+ },
+ {
+  "type": "impact",
+  "at": "word:l5:14"
+ },
+ {
+  "type": "whoosh",
+  "at": "scene:s6-0.1"
+ },
+ {
+  "type": "scratch",
+  "at": "word:l6:1"
+ },
+ {
+  "type": "tick",
+  "at": "word:l6:5"
+ },
+ {
+  "type": "pop",
+  "at": "word:l6:12"
+ },
+ {
+  "type": "pop",
+  "at": "word:l6:15"
+ },
+ {
+  "type": "tick",
+  "at": "word:l7:2"
+ },
+ {
+  "type": "impact",
+  "at": "word:l7:6"
+ },
+ {
+  "type": "shimmer",
+  "at": "word:l7:8"
+ },
+ {
+  "type": "riser",
+  "at": "word:l7:13"
+ }
+]
