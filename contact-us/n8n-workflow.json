@@ -1,0 +1,158 @@
+{
+ "name": "Iraqi Aviation — Contact us",
+ "nodes": [
+  {
+   "parameters": {
+    "httpMethod": "POST",
+    "path": "iraqi-aviation-contact",
+    "responseMode": "responseNode",
+    "options": {
+     "allowedOrigins": "*"
+    }
+   },
+   "id": "n1",
+   "name": "Contact Webhook",
+   "type": "n8n-nodes-base.webhook",
+   "typeVersion": 2,
+   "position": [
+    0,
+    200
+   ],
+   "webhookId": "iraqi-aviation-contact"
+  },
+  {
+   "parameters": {
+    "conditions": {
+     "options": {
+      "caseSensitive": true,
+      "leftValue": "",
+      "typeValidation": "loose"
+     },
+     "conditions": [
+      {
+       "id": "c1",
+       "leftValue": "={{ $json.body.website }}",
+       "rightValue": "",
+       "operator": {
+        "type": "string",
+        "operation": "empty",
+        "singleValue": true
+       }
+      },
+      {
+       "id": "c2",
+       "leftValue": "={{ $json.body.message }}",
+       "rightValue": "",
+       "operator": {
+        "type": "string",
+        "operation": "notEmpty",
+        "singleValue": true
+       }
+      }
+     ],
+     "combinator": "and"
+    }
+   },
+   "id": "n2",
+   "name": "ليس سبام؟",
+   "type": "n8n-nodes-base.if",
+   "typeVersion": 2.2,
+   "position": [
+    260,
+    200
+   ]
+  },
+  {
+   "parameters": {
+    "chatId": "PUT_YOUR_TELEGRAM_CHAT_ID",
+    "text": "=📩 رسالة جديدة\nرقم: {{ $json.body.ticket }}\nالاسم: {{ $json.body.name }}\nللرد: {{ $json.body.contact }}\nالموضوع: {{ $json.body.topic }}\n\n{{ $json.body.message }}",
+    "additionalFields": {
+     "appendAttribution": false
+    }
+   },
+   "id": "n3",
+   "name": "تنبيه تيليغرام",
+   "type": "n8n-nodes-base.telegram",
+   "typeVersion": 1.2,
+   "position": [
+    520,
+    100
+   ]
+  },
+  {
+   "parameters": {
+    "respondWith": "json",
+    "responseBody": "={{ { ok: true, ticket: $('Contact Webhook').item.json.body.ticket } }}",
+    "options": {}
+   },
+   "id": "n4",
+   "name": "رد للموقع",
+   "type": "n8n-nodes-base.respondToWebhook",
+   "typeVersion": 1.1,
+   "position": [
+    780,
+    100
+   ]
+  },
+  {
+   "parameters": {
+    "respondWith": "json",
+    "responseBody": "={{ { ok: true } }}",
+    "options": {}
+   },
+   "id": "n5",
+   "name": "رد للبوتات",
+   "type": "n8n-nodes-base.respondToWebhook",
+   "typeVersion": 1.1,
+   "position": [
+    520,
+    320
+   ]
+  }
+ ],
+ "connections": {
+  "Contact Webhook": {
+   "main": [
+    [
+     {
+      "node": "ليس سبام؟",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "ليس سبام؟": {
+   "main": [
+    [
+     {
+      "node": "تنبيه تيليغرام",
+      "type": "main",
+      "index": 0
+     }
+    ],
+    [
+     {
+      "node": "رد للبوتات",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  },
+  "تنبيه تيليغرام": {
+   "main": [
+    [
+     {
+      "node": "رد للموقع",
+      "type": "main",
+      "index": 0
+     }
+    ]
+   ]
+  }
+ },
+ "settings": {
+  "executionOrder": "v1"
+ }
+}

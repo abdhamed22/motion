@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مراسلتنا — الطيران العراقي</title>
+<meta name="description" content="راسلنا: استفسار، اقتراح، تصحيح معلومة أو تعاون. نرد عليك بأسرع وقت.">
+<meta name="theme-color" content="#0b4a35">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#0f6b49; --bg2:#0a4632; --bg3:#072e22;
+  --mint:#2fd08a; --mint-soft:#8be8bd; --mint-ink:#063f2c;
+  --amber:#f1c75b; --ink:#f4faf6; --mut:#a9cdbd;
+  --card:rgba(255,255,255,.09); --card-b:rgba(255,255,255,.14);
+  --bad:#ff8a7a;
+  --r:28px;
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%;background:#072e22}
+body{
+  min-height:100vh; font-family:'Cairo',system-ui,sans-serif; color:var(--ink);
+  background:linear-gradient(180deg,var(--bg1) 0%,var(--bg2) 55%,var(--bg3) 100%) fixed;
+  display:flex; justify-content:center; padding:28px 16px 40px; position:relative; overflow-x:hidden;
+}
+/* علامة W المائية */
+body::before{content:"";position:fixed;inset:auto -80px -60px auto;width:min(420px,60vw);height:min(420px,60vw);opacity:.055;pointer-events:none;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 40'><path d='M3 5 L14 35 L24 12 L34 35 L45 5' fill='none' stroke='white' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/></svg>") no-repeat center/contain}
+.wrap{width:100%;max-width:560px;position:relative;z-index:1}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:26px}
+.pill{display:inline-flex;align-items:center;background:var(--mint);color:var(--mint-ink);font-weight:800;font-size:18px;padding:9px 22px;border-radius:999px;white-space:nowrap}
+.pill.amber{background:var(--amber)}
+.handle{display:flex;align-items:center;gap:8px;color:var(--mint-soft);font-family:'Inter',sans-serif;font-weight:500;font-size:16px;direction:ltr}
+.handle svg{width:30px;height:26px}
+h1{font-size:clamp(34px,8vw,46px);font-weight:900;line-height:1.25;text-align:center;margin:6px 0 8px}
+.sub{text-align:center;color:var(--mut);font-size:16px;line-height:1.8;margin-bottom:24px}
+.card{background:var(--card);border:1px solid var(--card-b);border-radius:var(--r);padding:26px 22px;backdrop-filter:blur(6px)}
+.field{margin-bottom:18px}
+label{display:block;font-weight:700;font-size:15px;margin-bottom:8px;color:var(--mint-soft)}
+label small{font-weight:400;color:var(--mut);margin-inline-start:6px}
+input,select,textarea{
+  width:100%;font:inherit;font-size:16px;color:var(--ink);background:rgba(4,40,28,.55);
+  border:1.5px solid rgba(255,255,255,.14);border-radius:16px;padding:13px 16px;outline:none;transition:border-color .15s,box-shadow .15s;
+}
+textarea{min-height:150px;resize:vertical;line-height:1.8}
+select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' fill='none' stroke='%238be8bd' stroke-width='2' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:left 16px center;padding-inline-end:16px;padding-inline-start:40px}
+select option{color:#04281c}
+input::placeholder,textarea::placeholder{color:rgba(169,205,189,.6)}
+input:focus,select:focus,textarea:focus{border-color:var(--mint);box-shadow:0 0 0 4px rgba(47,208,138,.18)}
+.err{display:none;color:var(--bad);font-size:14px;margin-top:6px}
+.field.bad input,.field.bad select,.field.bad textarea{border-color:var(--bad)}
+.field.bad .err{display:block}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:520px){.row{grid-template-columns:1fr}}
+.hp{position:absolute;inset-inline-start:-9999px;width:1px;height:1px;opacity:0}
+button.send{
+  width:100%;border:0;cursor:pointer;font:inherit;font-weight:900;font-size:19px;color:var(--mint-ink);
+  background:var(--mint);padding:15px;border-radius:18px;transition:transform .12s,filter .15s;margin-top:6px
+}
+button.send:hover{filter:brightness(1.06)}
+button.send:active{transform:scale(.985)}
+button.send:disabled{opacity:.6;cursor:wait}
+.note{font-size:13px;color:var(--mut);text-align:center;margin-top:14px;line-height:1.8}
+.status{display:none;margin-top:18px;border-radius:18px;padding:16px 18px;font-size:16px;line-height:1.8}
+.status.ok{display:block;background:rgba(47,208,138,.16);border:1px solid rgba(47,208,138,.5)}
+.status.fail{display:block;background:rgba(255,138,122,.14);border:1px solid rgba(255,138,122,.5)}
+.status b{color:var(--mint-soft)}
+.ticket{display:inline-block;direction:ltr;font-family:'Inter',sans-serif;font-weight:500;letter-spacing:2px;background:rgba(4,40,28,.6);border-radius:10px;padding:2px 12px;margin:0 4px}
+.foot{display:flex;justify-content:space-between;color:var(--mut);font-size:14px;margin:26px 4px 0;direction:ltr;font-family:'Inter',sans-serif}
+.slogan{text-align:center;margin-top:22px;color:rgba(47,208,138,.75);font-family:'Inter',sans-serif;font-weight:500;letter-spacing:4px;font-size:12px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="top">
+    <span class="pill">مراسلتنا</span>
+    <span class="handle">
+      <svg viewBox="0 0 48 40" aria-hidden="true"><path d="M3 5 L14 35 L24 12 L34 35 L45 5" fill="none" stroke="#2fd08a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      @iraqi_aviation_ngb
+    </span>
+  </div>
+
+  <h1>تواصل معنا</h1>
+  <p class="sub">عندك استفسار، اقتراح أو تصحيح لمعلومة؟ اكتب لنا وراح نرد عليك بأقرب وقت.</p>
+
+  <form class="card" id="f" novalidate>
+    <div class="row">
+      <div class="field" data-f="name">
+        <label for="name">الاسم</label>
+        <input id="name" name="name" autocomplete="name" placeholder="اسمك الكريم" maxlength="80">
+        <div class="err">اكتب اسمك (حرفين على الأقل).</div>
+      </div>
+      <div class="field" data-f="contact">
+        <label for="contact">وسيلة الرد <small>إيميل أو تيليغرام</small></label>
+        <input id="contact" name="contact" autocomplete="email" placeholder="إيميل أو @تيليغرام" maxlength="120" dir="ltr" style="text-align:right">
+        <div class="err">اكتب إيميل صحيح أو معرّف تيليغرام يبدأ بـ @.</div>
+      </div>
+    </div>
+    <div class="field" data-f="topic">
+      <label for="topic">الموضوع</label>
+      <select id="topic" name="topic">
+        <option value="">اختر الموضوع…</option>
+        <option>استفسار</option>
+        <option>اقتراح</option>
+        <option>تصحيح معلومة</option>
+        <option>بلاغ عن خطأ</option>
+        <option>تعاون أو إعلان</option>
+        <option>أخرى</option>
+      </select>
+      <div class="err">اختر موضوع الرسالة.</div>
+    </div>
+    <div class="field" data-f="message">
+      <label for="message">رسالتك</label>
+      <textarea id="message" name="message" placeholder="اكتب رسالتك هنا…" maxlength="2000"></textarea>
+      <div class="err">الرسالة قصيرة، اكتب 10 أحرف على الأقل.</div>
+    </div>
+    <!-- حقل فخ للبوتات: لازم يبقى فاضي -->
+    <div class="hp" aria-hidden="true"><label>الموقع<input name="website" tabindex="-1" autocomplete="off"></label></div>
+    <button class="send" id="btn" type="submit">إرسال الرسالة</button>
+    <div class="status" id="st" role="status" aria-live="polite"></div>
+    <p class="note">برسالتك أنت توافق إننا نحتفظ بمعلومات التواصل فقط للرد عليك.</p>
+  </form>
+
+  <div class="foot"><span>aviationweather.gov</span><span>@iraqi_aviation_ngb</span></div>
+  <div class="slogan">FLY HEADING TO THE DREAM</div>
+</main>
+
+<script>
+/* ===== الإعداد: ضع رابط الـ Webhook من n8n هنا ===== */
+const N8N_WEBHOOK_URL = "https://YOUR-N8N-DOMAIN/webhook/iraqi-aviation-contact";
+/* ================================================== */
+
+const $ = s => document.querySelector(s), f = $('#f'), btn = $('#btn'), st = $('#st');
+const t0 = Date.now();
+const rules = {
+  name: v => v.trim().length >= 2,
+  contact: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) || /^@[A-Za-z0-9_]{4,32}$/.test(v.trim()),
+  topic: v => v !== '',
+  message: v => v.trim().length >= 10
+};
+function check(){
+  let ok = true;
+  for (const k in rules){
+    const el = f.elements[k], good = rules[k](el.value);
+    f.querySelector(`[data-f="${k}"]`).classList.toggle('bad', !good); if (!good) ok = false;
+  }
+  return ok;
+}
+f.addEventListener('input', e => { const w = e.target.closest('.field'); if (w && w.classList.contains('bad') && rules[e.target.name]?.(e.target.value)) w.classList.remove('bad'); });
+const ticket = () => 'NGB-' + Math.random().toString(36).slice(2, 8).toUpperCase();
+
+f.addEventListener('submit', async e => {
+  e.preventDefault(); st.className = 'status'; st.textContent = '';
+  if (!check()) return;
+  if (Date.now() - t0 < 3000) { await new Promise(r => setTimeout(r, 3000 - (Date.now() - t0))); }
+  try { const last = +localStorage.getItem('ngb_last') || 0; if (Date.now() - last < 60000) { st.className = 'status fail'; st.textContent = 'انتظر دقيقة بين رسالة وأخرى من فضلك.'; return; } } catch (_) {}
+  const id = ticket();
+  const payload = {
+    ticket: id,
+    name: f.name.value.trim(), contact: f.contact.value.trim(), topic: f.topic.value, message: f.message.value.trim(),
+    website: f.website.value,                       // فخ البوتات
+    page: location.href, lang: navigator.language, ua: navigator.userAgent, sentAt: new Date().toISOString()
+  };
+  btn.disabled = true; btn.textContent = 'جاري الإرسال…';
+  try {
+    if (N8N_WEBHOOK_URL.includes('YOUR-N8N-DOMAIN')) throw new Error('webhook-not-set');
+    const r = await fetch(N8N_WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+    if (!r.ok) throw new Error('http-' + r.status);
+    try { localStorage.setItem('ngb_last', Date.now()); } catch (_) {}
+    st.className = 'status ok';
+    st.innerHTML = 'وصلتنا رسالتك، شكرًا لك! رقم مراسلتك <span class="ticket">' + id + '</span><br>احتفظ به إذا احتجت تتابع معنا.';
+    f.reset();
+  } catch (err) {
+    st.className = 'status fail';
+    st.textContent = err.message === 'webhook-not-set'
+      ? 'الموقع غير مربوط بعد: ضع رابط n8n داخل الملف (N8N_WEBHOOK_URL).'
+      : 'ما قدرنا نرسل رسالتك الحين. جرّب مرة ثانية بعد شوي.';
+  } finally { btn.disabled = false; btn.textContent = 'إرسال الرسالة'; }
+});
+</script>
+</body>
+</html>
